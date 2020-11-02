@@ -881,36 +881,60 @@ function SelectAllMesResult(result, data){
 
             case 3:
                 //没有登录领英精灵账号
-                ShowLoginDialog();
-                PointOut('请先登录领英精灵账号');
+                 if(data['action'] ==1){
+                    $("input[name='mes']").prop('checked',true);
+                    PointOut('选择了 ' + data['count'] + ' 条');
+                }else{
+                    $("input[name='mes']").prop('checked',false);
+                    PointOut('个性化邀请消息已全部取消，邀请好友时不会发送消息。');
+                }
                 break;
 
+
             case 4:
-                //没有绑定领英账号
-                JlConfirm('没有绑定Linkedin账号，请先绑定Linkedin账号，确定要绑定吗？');
-                $('#j_ok').click(function(){
-                    BindLinkedin(true);
-                });
+                if(data['action'] ==1){
+                    $("input[name='mes']").prop('checked',true);
+                    PointOut('选择了 ' + data['count'] + ' 条');
+                }else{
+                    $("input[name='mes']").prop('checked',false);
+                    PointOut('个性化邀请消息已全部取消，邀请好友时不会发送消息。');
+                }
                 break;
+
 
             case 5:
                 //登录超过
-                ShowLoginDialog();
-                PointOut('请先登录领英精灵账号');
+                if(data['action'] ==1){
+                    $("input[name='mes']").prop('checked',true);
+                    PointOut('选择了 ' + data['count'] + ' 条');
+                }else{
+                    $("input[name='mes']").prop('checked',false);
+                    PointOut('个性化邀请消息已全部取消，邀请好友时不会发送消息。');
+                }
                 break;
+
 
             case 6:
                 //异地登录中
-                ShowLoginDialog();
-                PointOut('其它设备在登录中');
+                   if(data['action'] ==1){
+                    $("input[name='mes']").prop('checked',true);
+                    PointOut('选择了 ' + data['count'] + ' 条');
+                }else{
+                    $("input[name='mes']").prop('checked',false);
+                    PointOut('个性化邀请消息已全部取消，邀请好友时不会发送消息。');
+                }
                 break;
             case 7:
                 //超过试用期
-                ShowUpgrade('试用期已过', '注册后可以试用7天，您的试用期已过，请升级会员使用，感谢支持');
+                if(data['action'] ==1){
+                    $("input[name='mes']").prop('checked',true);
+                    PointOut('选择了 ' + data['count'] + ' 条');
+                }else{
+                    $("input[name='mes']").prop('checked',false);
+                    PointOut('个性化邀请消息已全部取消，邀请好友时不会发送消息。');
+                }
                 break;
 
-            default:
-                break;
         }
     }else{
         PointOut('失败，请检查网络，勿翻墙！');
